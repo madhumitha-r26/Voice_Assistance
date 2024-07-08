@@ -5,8 +5,8 @@ Created on Mon Jun 10 19:59:02 2024
 @author: Madhumitha
 """
 
-import speech_recognition as sr
 
+import speech_recognition as sr
 while True:
     r= sr.Recognizer()
     with sr.Microphone() as source:
@@ -20,9 +20,8 @@ while True:
             print(recognized_text)
             remainder= recognized_text.split()
             while remainder:
-                line=remainder[:5]
-                remainder=remainder[5:]
-                f.write(' '.join(remainder)+ "\n")
+                line,remainder=remainder[:5],remainder[5:]
+                f.write(' '.join(line)+ "\n")
             if recognized_text =='stop':
                 break
         
